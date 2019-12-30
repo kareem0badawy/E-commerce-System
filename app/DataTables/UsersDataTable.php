@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Model\Admin;
+use App\Model\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Services\DataTable;
 
-class AdminDataTable extends DataTable
+class UsersDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,10 +18,12 @@ class AdminDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('actions', 'admin.admins.buttons.actions')
-            // ->addColumn('delete', 'admin.admins.buttons.delete')
-            ->addColumn('checkbox', 'admin.admins.buttons.checkbox')
+            ->addColumn('actions', 'admin.users.buttons.actions')
+            // ->addColumn('delete', 'admin.users.buttons.delete')
+            ->addColumn('level', 'admin.users.buttons.level')
+            ->addColumn('checkbox', 'admin.users.buttons.checkbox')
 			->rawColumns([
+				'level',
 				'actions',
 				// 'delete',
 				'checkbox',
@@ -31,13 +33,18 @@ class AdminDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Admin $model
+     * @param \App\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query()
     {
         // return $model->newQuery();
-        return Admin::query();
+        // return User::query();
+        return User::query()->where(function ($q) {
+				if (request()->has('level')) {
+					return $q->where('level', request('level'));
+				}
+			});
     }
 
     /**
@@ -50,7 +57,7 @@ class AdminDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-        ->setTableId('admin-table')
+        ->setTableId('user-table')
         ->columns($this->getColumns())
                 ->minifiedAjax()
                 ->dom('Blfrtip')
@@ -66,7 +73,7 @@ class AdminDataTable extends DataTable
                 )
                 ->parameters([
                     'initComplete' => " function () {
-                        this.api().columns([1,2,3]).every(function () {
+                        this.api().columns([2,3]).every(function () {
                             var column = this;
                             var input = document.createElement(\"input\");
                             $(input).appendTo($(column.footer()).empty())
@@ -103,13 +110,17 @@ class AdminDataTable extends DataTable
 			], [
 				'name'  => 'name',
 				'data'  => 'name',
-				'title' => trans('admin.admin_name'),
+				'title' => trans('admin.name'),
 			], [
 				'name'  => 'email',
 				'data'  => 'email',
 				'title' => 'Admin Email',
-				'title' => trans('admin.admin_email'),
-			], [
+				'title' => trans('admin.email'),
+            ],[
+				'name'  => 'level',
+				'data'  => 'level',
+				'title' => trans('admin.level'),
+			],[
 				'name'  => 'created_at',
 				'data'  => 'created_at',
 				'title' => trans('admin.created_at'),
@@ -136,6 +147,6 @@ class AdminDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Admin_' . date('YmdHis');
+        return 'Users_' . date('YmdHis');
     }
 }

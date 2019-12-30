@@ -13,6 +13,18 @@ if (!function_exists('admin')) {
     }
 }
 
+
+if (!function_exists('active_menu')) {
+	function active_menu($link) {
+		if (preg_match('/'.$link.'/i', Request::segment(2))) {
+			return ['menu-open','active', 'nav-link','display:block'];
+		} else {
+			return ['', '','',''];
+		}
+	}
+}
+
+
 // Ues this function in Middleware Lang
 if (!function_exists('lang')) {
 	function lang() {

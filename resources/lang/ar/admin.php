@@ -36,6 +36,7 @@ return [
 	'sSortAscending'               => 'ترتيب بحسب الاقدم',
 	'sSortDescending'              => 'ترتيب بحسب الاحدث',
 	'edit'                         => 'تعديل',
+	'actions'                      => 'الاختيارات',
 	'add'                          => 'إضافة',
 	'delete'                       => 'حذف',
 	'admin_name'                   => 'اسم المشرف',
@@ -56,4 +57,9 @@ return [
 	'deleteAll'                    => ' حذف الكل',
 	'deleted_record'               => 'تم الحذف للبيانات بنجاح',
 	'delete_this'                  => 'هل انت موافق على حذف :name ؟',
+	'users'                        => 'الاعضاء',
+	'user'                         => 'عضو',
+	'company'                      => 'شركة',
+	'vendor'                       => 'متجر',
+	'level'                        => 'مستوى العضوية',
 ];

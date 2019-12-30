@@ -56,7 +56,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{ aurl() }}" class="nav-link active">
+            <a href="{{ aurl() }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 {{ trans('admin.dashboard') }}
@@ -74,21 +74,37 @@
             </a>
           </li> --}}
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview {{ active_menu('admin')[0] }}">
+            <a href="#" class="nav-link {{ active_menu('admin')[1] }}">
               <i class="nav-icon fa fa-user-secret"></i>
               <p>
                 {{ trans('admin.admin') }}
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview {{ active_menu('admin')[2] }}">
               <li class="nav-item">
                 <a href="{{ aurl('admin') }}" class="nav-link">
                   <i class="fa fa-users nav-icon"></i>
                   <p>{{ trans('admin.admins') }}</p>
                 </a>
               </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview {{ active_menu('users')[0] }}">
+            <a href="#" class="nav-link {{ active_menu('users')[1] }}">
+              <i class="nav-icon fa fa-users"></i>
+              <p>
+                {{ trans('admin.users') }}
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview {{ active_menu('users')[2] }}" style="{{ active_menu('users')[3] }}">
+              <li class="nav-item"><a href="{{ aurl('users') }}" class="nav-link"><i class="fa fa-users nav-icon"></i><p> {{ trans('admin.users') }}</p></a></li>
+              {{-- <li class="nav-item"><a href="{{ aurl('users') }}?level=user" class="nav-link"><i class="fa fa-users"></i><p> {{ trans('admin.user') }}</p></a></li>
+              <li class="nav-item"><a href="{{ aurl('users') }}?level=vendor" class="nav-link"><i class="fa fa-users"></i><p> {{ trans('admin.vendor') }}</p></a></li>
+              <li class="nav-item"><a href="{{ aurl('users') }}?level=company" class="nav-link"><i class="fa fa-users"></i><p> {{ trans('admin.company') }}</p></a></li> --}}
             </ul>
           </li>
          
