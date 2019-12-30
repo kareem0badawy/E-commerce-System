@@ -47,6 +47,14 @@
                   <span class="kt-menu__link-text">{{ trans('admin.dashboard') }}</span>
                </a>
             </li>
+            <li class="kt-menu__item" aria-haspopup="true">
+               <a href="{{ aurl('settings') }}" class="kt-menu__link kt-menu__item--active">
+                  <span class="kt-menu__link-icon">
+                        <i class="fa fa-cogs"></i>
+                  </span>
+                  <span class="kt-menu__link-text">{{ trans('admin.settings') }}</span>
+               </a>
+            </li>
             {{-- <li class="kt-menu__section ">
                <h4 class="kt-menu__section-text">Components</h4>
                <i class="kt-menu__section-icon flaticon-more-v2"></i>

@@ -1,4 +1,9 @@
 <?php
+if (!function_exists('setting')) {
+	function setting() {
+		return \App\Model\Setting::orderBy('id', 'desc')->first();
+	}
+}
 
 if (!function_exists('aurl')) {
     function aurl($url=null) {

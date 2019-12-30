@@ -25,6 +25,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
 
         Route::any('logout', 'AuthController@logout');
+        Route::get('settings', 'Settings@setting');
+        Route::post('settings', 'Settings@setting_save');
 
         Route::get('lang/{lang}', function ($lang) {
             session()->has('lang') ? session()->forget('lang') : '';
