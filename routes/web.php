@@ -16,6 +16,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/test', function () {
-    return view('admin.test');
-});
+// Route::get('/test', function () {
+//     return view('admin.master');
+// });

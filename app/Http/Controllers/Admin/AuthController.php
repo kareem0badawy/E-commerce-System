@@ -19,9 +19,10 @@ class AuthController extends Controller
         return view('admin.login');
     }
 
-    public function postLogin() {
-        $rememberme = request('rememberme') == 1?true:false;
-		if (admin()->attempt(['email' => request('email'), 'password' => request('password')], $rememberme)) {
+    public function postLogin(Request $request) {
+		// dd($request->all());
+        $rememberme = $request->rememberme == 1?true:false;
+		if (admin()->attempt(['email' => $request->email, 'password' => $request->password], $rememberme)) {
 			return redirect('admin');
 		} else {
 			session()->flash('error', trans('admin.inccorrect_information_login'));

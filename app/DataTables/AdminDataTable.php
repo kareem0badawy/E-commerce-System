@@ -66,7 +66,7 @@ class AdminDataTable extends DataTable
                 )
                 ->parameters([
                     'initComplete' => " function () {
-                        this.api().columns([1,2,3]).every(function () {
+                        this.api().columns([2,3,4]).every(function () {
                             var column = this;
                             var input = document.createElement(\"input\");
                             $(input).appendTo($(column.footer()).empty())

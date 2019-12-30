@@ -1,87 +1,75 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{ trans('admin.login') }}</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('adminPanel/plugins/fontawesome-free/css/all.min.css') }}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{asset('adminPanel/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('adminPanel/dist/css/adminlte.min.css') }}">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="/admin"><b>{{ trans('admin.loginTitle') }}</b></a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
-
-      <form method="post">
-        {{ csrf_field() }}
-        <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="Email">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember" name="rememberme" value="1">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-      <!-- /.social-auth-links -->
-
-      <p class="mb-1">
-        <a href="{{ aurl('forgot/password') }}">I forgot my password</a>
-      </p>
-      {{-- <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p> --}}
-    </div>
-    <!-- /.login-card-body -->
-  </div>
-</div>
-<!-- /.login-box -->
-
-<!-- jQuery -->
-<script src="{{ asset('adminPanel/plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('adminPanel/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('adminPanel/dist/js/adminlte.min.js') }}"></script>
-
-</body>
+<html lang="en">
+	<!-- begin::Head -->
+	<head>
+		<!--begin::Base Path (base relative path for assets of this page) -->
+		<base href="../../../../">
+		<!--end::Base Path -->
+		<meta charset="utf-8" />
+		<title>Metronic | Login Page 4</title>
+		<meta name="description" content="Login page example">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!--begin::Fonts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+		<script>
+			WebFont.load({
+				google: {
+					"families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]
+				},
+				active: function() {
+					sessionStorage.fonts = true;
+				}
+			});
+		</script>
+		<!--end::Fonts -->
+		<!--begin::Page Custom Styles(used by this page) -->
+		<link href="{{asset('adminPanal/assets/css/demo1/pages/login/login-4.css')}}" rel="stylesheet" type="text/css" />
+		<link href="{{asset('adminPanal/assets/css/demo1/style.bundle.css')}}" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="{{asset('adminPanal/assets/media/logos/favicon.ico') }}" />
+	</head>
+	<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+		<div class="kt-grid kt-grid--ver kt-grid--root">
+			<div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v4 kt-login--signin" id="kt_login">
+				<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(adminPanal/assets/media/bg/bg-2.jpg);">
+					<div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
+						<div class="kt-login__container">
+							<div class="kt-login__logo">
+								<a href="#">
+									<img src="{{ asset('adminPanal/assets/media/logos/logo-5.png') }}">
+								</a>
+							</div>
+							<div class="kt-login__signin">
+								<div class="kt-login__head">
+									<h3 class="kt-login__title">Sign In To Admin</h3>
+								</div>
+								<form class="kt-form"  method="post">
+                                    {{ csrf_field() }}
+									<div class="input-group">
+										<input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
+									</div>
+									<div class="input-group">
+										<input class="form-control" type="password" placeholder="Password" name="password">
+									</div>
+									<div class="row kt-login__extra">
+										<div class="col">
+											<label class="kt-checkbox">
+												<input type="checkbox" name="remember"> Remember me
+												<span></span>
+											</label>
+										</div>
+										<div class="col kt-align-right">
+											<a href="javascript:;" id="kt_login_forgot" class="kt-login__link">Forget Password ?</a>
+										</div>
+									</div>
+									<div class="kt-login__actions">
+										<button type="submit" id="kt_login_signin_submit" class="btn btn-brand btn-pill kt-login__btn-primary">Sign In</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

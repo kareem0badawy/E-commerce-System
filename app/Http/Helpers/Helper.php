@@ -17,7 +17,7 @@ if (!function_exists('admin')) {
 if (!function_exists('active_menu')) {
 	function active_menu($link) {
 		if (preg_match('/'.$link.'/i', Request::segment(2))) {
-			return ['menu-open','active', 'nav-link','display:block'];
+			return ['kt-menu__item--open','kt-menu__item--active', 'nav-link','display:block'];
 		} else {
 			return ['', '','',''];
 		}

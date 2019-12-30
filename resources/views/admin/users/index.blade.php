@@ -1,20 +1,23 @@
 @extends('admin.master')
 
 @section('content')
- <h1>Hello Admin</h1>.
- 
- <div class="card">
-  <div class="card-header">
-    <h3 class="card-title">{{ $title }}</h3>
-  </div>
-  <!-- /.card-header -->
-  <div class="card-body">
+<div class="kt-portlet kt-portlet--mobile">
+    <div class="kt-portlet__head kt-portlet__head--lg">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="kt-font-brand flaticon2-line-chart"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                {{ $title }}
+            </h3>
+        </div>
+    </div>
+    <div class="card-body">
       {!! Form::open(['id'=>'form_data','url'=>aurl('users/destroy/all'),'method'=>'delete']) !!}
-        {{ $dataTable->table([ 'class' => 'table table-bordered table-hover dataTable' ], true) }}
+        {{ $dataTable->table([ 'class' => 'table table-bordered table-hover dataTable'], true) }}
       {!! Form::close() !!}
 
   </div>
-  <!-- /.card-body -->
 </div>
 
 <!-- Start Modal Confirm Delete -->

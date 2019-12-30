@@ -1,7 +1,7 @@
-<span class="label
-  {{ $level == 'user'?'label-info':'' }}
-  {{ $level == 'vendor'?'label-primary':'' }}
-  {{ $level == 'company'?'label-success':'' }}
+<span class="btn
+  {{ $level == 'user'?'btn-info':'' }}
+  {{ $level == 'vendor'?'btn-primary':'' }}
+  {{ $level == 'company'?'btn-success':'' }}
   ">
 
   {{ trans('admin.'.$level) }}

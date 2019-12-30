@@ -1,34 +1,19 @@
 @include('admin.layouts.header')
-
 @include('admin.layouts.navbar')
 
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    <div class="bgArabic kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
+        @include('admin.layouts.menu')
+    <!-- end:: Header -->
+    <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
 
-    <!-- Main content -->
-    <section class="content">
-        @include('admin.layouts.message')
-        
-        @yield('content')
-    </section>
-    <!-- /.content -->
+    <!-- end:: Content Head -->
+    @include('admin.layouts.message')
+    <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
+        <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+            @yield('content')
+        </div>
+    </div>
+    <!-- end:: Content -->
 </div>
-<!-- /.content-wrapper -->
+
 @include('admin.layouts.footer')
