@@ -132,6 +132,10 @@
 
 		<script src="{{ asset('adminPanal/assets/js/demo1/pages/dashboard.js')}}" type="text/javascript"></script>
 
+		<script src="{{ url('adminPanal/assets/jstree/src/jstree.js') }}"></script>
+		{{-- <script src="{{ url('adminPanal/assets/jstree/src/jstree.wholerow.js') }}"></script> --}}
+		{{-- <script src="{{ url('adminPanal/assets/jstree/src/jstree.checkbox.js') }}"></script> --}}
+
 		@stack('js')
         @stack('css')
 	</body>

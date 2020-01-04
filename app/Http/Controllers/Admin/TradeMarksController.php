@@ -1,27 +1,30 @@
 <?php
 namespace App\Http\Controllers\Admin;
-use App\DataTables\CountryDatatable;
+use App\DataTables\TradeMarkDatatable;
 use App\Http\Controllers\Controller;
-use App\Model\Country;
+use App\Model\TradeMark;
 use Illuminate\Http\Request;
 use Storage;
-class CountriesController extends Controller {
+
+class TradeMarksController extends Controller {
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index(CountryDatatable $country) {
-		return $country->render('admin.countries.index', ['title' => trans('admin.countries')]);
+	public function index(TradeMarkDatatable $trade) {
+		return $trade->render('admin.trademarks.index', ['title' => trans('admin.trademarks')]);
 	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
-		return view('admin.countries.manage', ['title' => trans('admin.create_countries')]);
+		return view('admin.trademarks.manage', ['title' => trans('admin.create_trademarks')]);
 	}
+
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -29,32 +32,32 @@ class CountriesController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store() {
+
 		$data = $this->validate(request(),
 			[
 				'name_ar' => 'required',
 				'name_en' => 'required',
-				'iso_code'             => 'required',
-				'code'            => 'required',
-				'logo'            => 'required|'.validate_image(),
+				'logo'    => 'sometimes|nullable|'.validate_image(),
 			], [], [
-				'name_ar' => trans('admin.country_name_ar'),
-				'name_en' => trans('admin.country_name_en'),
-				'iso_code'             => trans('admin.iso_code'),
-				'code'            => trans('admin.code'),
-				'logo'            => trans('admin.logo'),
+				'name_ar' => trans('admin.name_ar'),
+				'name_en' => trans('admin.name_en'),
+				'logo'    => trans('admin.trade_icon'),
 			]);
+
 		if (request()->hasFile('logo')) {
 			$data['logo'] = up()->upload([
 					'file'        => 'logo',
-					'path'        => 'countries',
+					'path'        => 'trademarks',
 					'upload_type' => 'single',
 					'delete_file' => '',
 				]);
 		}
-		Country::create($data);
+
+		TradeMark::create($data);
 		session()->flash('success', trans('admin.record_added'));
-		return redirect(aurl('countries'));
+		return redirect(aurl('trademarks'));
 	}
+
 	/**
 	 * Display the specified resource.
 	 *
@@ -64,6 +67,7 @@ class CountriesController extends Controller {
 	public function show($id) {
 		//
 	}
+
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -71,10 +75,11 @@ class CountriesController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id) {
-		$country = Country::find($id);
-		$title   = trans('admin.edit');
-		return view('admin.countries.manage', compact('country', 'title'));
+		$trademark = TradeMark::find($id);
+		$title     = trans('admin.edit');
+		return view('admin.trademarks.manage', compact('trademark', 'title'));
 	}
+
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -83,32 +88,32 @@ class CountriesController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function update(Request $r, $id) {
+
 		$data = $this->validate(request(),
 			[
 				'name_ar' => 'required',
 				'name_en' => 'required',
-				'iso_code'             => 'required',
-				'code'            => 'required',
-				'logo'            => 'sometimes|nullable|'.validate_image(),
+				'logo'    => 'sometimes|nullable|'.validate_image(),
 			], [], [
-				'name_ar' => trans('admin.country_name_ar'),
-				'name_en' => trans('admin.country_name_en'),
-				'iso_code'        => trans('admin.iso_code'),
-				'code'            => trans('admin.code'),
-				'logo'            => trans('admin.logo'),
+				'name_ar' => trans('admin.name_ar'),
+				'name_en' => trans('admin.name_en'),
+				'logo'    => trans('admin.trade_icon'),
 			]);
+
 		if (request()->hasFile('logo')) {
 			$data['logo'] = up()->upload([
 					'file'        => 'logo',
-					'path'        => 'countries',
+					'path'        => 'trademarks',
 					'upload_type' => 'single',
-					'delete_file' => Country::find($id)->logo,
+					'delete_file' => TradeMark::find($id)->logo,
 				]);
 		}
-		Country::where('id', $id)->update($data);
+
+		TradeMark::where('id', $id)->update($data);
 		session()->flash('success', trans('admin.updated_record'));
-		return redirect(aurl('countries'));
+		return redirect(aurl('trademarks'));
 	}
+
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -116,25 +121,26 @@ class CountriesController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy($id) {
-		$countries = Country::find($id);
-		Storage::delete($countries->logo);
-		$countries->delete();
+		$trademarks = TradeMark::find($id);
+		Storage::delete($trademarks->logo);
+		$trademarks->delete();
 		session()->flash('success', trans('admin.deleted_record'));
-		return redirect(aurl('countries'));
+		return redirect(aurl('trademarks'));
 	}
+
 	public function multi_delete() {
 		if (is_array(request('item'))) {
 			foreach (request('item') as $id) {
-				$countries = Country::find($id);
-				Storage::delete($countries->logo);
-				$countries->delete();
+				$trademarks = TradeMark::find($id);
+				Storage::delete($trademarks->logo);
+				$trademarks->delete();
 			}
 		} else {
-			$countries = Country::find(request('item'));
-			Storage::delete($countries->logo);
-			$countries->delete();
+			$trademarks = TradeMark::find(request('item'));
+			Storage::delete($trademarks->logo);
+			$trademarks->delete();
 		}
 		session()->flash('success', trans('admin.deleted_record'));
-		return redirect(aurl('countries'));
+		return redirect(aurl('trademarks'));
 	}
 }
