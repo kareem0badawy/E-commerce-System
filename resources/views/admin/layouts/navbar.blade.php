@@ -104,6 +104,29 @@
                 </div>
              </li>
            {{-- End Users --}}
+
+           {{-- Begin counteries --}}
+           <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('countries')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+            <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+               <span class="kt-menu__link-icon">
+                     <i class="nav-icon fa fa-users"></i>
+               </span>
+               <span class="kt-menu__link-text">{{ trans('admin.countries') }}</span>
+               <i class="kt-menu__ver-arrow la la-angle-right"></i>
+            </a>
+            <div class="kt-menu__submenu">
+               <span class="kt-menu__arrow"></span>
+               <ul class="kt-menu__subnav">
+                  <li class="kt-menu__item {{ active_menu('countries')[1] }}" aria-haspopup="true">
+                      <a href="{{ aurl('countries') }}" class="kt-menu__link ">
+                         <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                         <span class="kt-menu__link-text">{{ trans('admin.countries') }}</span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </li>
+       {{-- End counteries --}}
          </ul>
       </div>
    </div>

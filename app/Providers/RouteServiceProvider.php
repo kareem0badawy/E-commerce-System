@@ -57,6 +57,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapWebAdminRoutes()
     {
+        \Config::set('filesystem.disk.public.url',url('storage'));
         Route::middleware(['web', 'Lang'])
              ->namespace($this->namespace)
              ->group(base_path('routes/admin.php'));

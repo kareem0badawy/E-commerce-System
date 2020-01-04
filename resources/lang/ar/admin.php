@@ -11,7 +11,7 @@ return [
 	'Arabic'                       => 'اللغة العربية',
 	'English'                      => 'اللغة الانجليزية',
 	'dashboard'                    => 'الرئيسية',
-	'create_admin'                 => 'اضف مشرف جديد',
+	'create_admin'                 => 'اضف',
 	'ex_excel'                     => 'تصدير ك Excel',
 	'ex_csv'                       => 'تصدير ك CSV',
 	'print'                        => '  طباعة',
@@ -73,5 +73,11 @@ return [
 	'open'                         => 'مفتوح',
 	'message_maintenance'          => 'رسالة الصيانة',
 	'main_lang'				       => 'لغة الموقع الافتراضية',
-
+	'countries'                    => 'الدول',
+	'create_countries'             => 'اضافة دولة جديدة',
+	'country_name_ar'              => 'اسم الدولة عربى',
+	'country_name_en'              => 'اسم الدولة انجليزى',
+	'country_flag'                 => 'العلم',
+	'iso_code'                     => 'كود الدولة',
+	'code'                         => 'اختار / رمز الدولة',
 ];

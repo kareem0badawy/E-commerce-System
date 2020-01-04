@@ -9,7 +9,41 @@ class Settings extends Controller {
 		return view('admin.settings.settings', ['title' => trans('admin.settings')]);
 	}
 	public function setting_save() {
-		$data = request()->except(['_token', '_method']);
+		$data = $this->validate(request(), [
+			'logo'                => validate_image(),
+			'icon'                => validate_image(),
+			'status'              => '',
+			'description'         => '',
+			'keywords'            => '',
+			'main_lang'           => '',
+			'message_maintenance' => '',
+			'email'               => '',
+			'sitename_en'         => '',
+			'sitename_ar'         => '',
+		], [],
+		[
+			'logo' => trans('admin.logo'),
+			'icon' => trans('admin.icon')
+		]);
+
+		if (request()->hasFile('logo')) {
+			$data['logo'] = up()->upload([
+					'file'        => 'logo',
+					'path'        => 'settings',
+					'upload_type' => 'single',
+					'delete_file' => setting()->logo,
+				]);
+		}
+		if (request()->hasFile('icon')) {
+			$data['icon'] = up()->upload([
+					'file'        => 'icon',
+					'path'        => 'settings',
+					'upload_type' => 'single',
+					'delete_file' => setting()->icon,
+				]);
+		}
+		// $data = request()->all();
+		// $data = request()->except(['_token', '_method']);
 		Setting::orderBy('id', 'desc')->update($data);
 		session()->flash('success', trans('admin.updated_record'));
 		return redirect(aurl('settings'));

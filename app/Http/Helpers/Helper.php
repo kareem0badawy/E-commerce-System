@@ -36,7 +36,7 @@ if (!function_exists('lang')) {
 		if (session()->has('lang')) {
 			return session('lang');
 		} else {
-			return 'en';
+			return setting()->main_lang;
 		}
 	}
 }
@@ -82,5 +82,25 @@ if (!function_exists('datatable_lang')) {
 			],
 		];
 	}
+
+/////// Validate Helper Functions ///////
+
+if (!function_exists('up')) {
+	function up() {
+		return new \App\Http\Controllers\UploadController;
+	}
+}
+
+
+if (!function_exists('validate_image')) {
+	function validate_image($extension = null) {
+		if ($extension === null) {
+			return 'image|mimes:jpg,jpeg,png,gif,bmp';
+		} else {
+			return 'image|mimes:'.$extension;
+		}
+	}
+}
+/////// Validate Helper Functions ///////
 }
 
