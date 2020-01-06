@@ -123,11 +123,23 @@
                          <span class="kt-menu__link-text">{{ trans('admin.countries') }}</span>
                      </a>
                   </li>
+                  <li class="kt-menu__item {{ active_menu('cities')[1] }}" aria-haspopup="true">
+                     <a href="{{ aurl('cities') }}" class="kt-menu__link ">
+                        <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                        <span class="kt-menu__link-text">{{ trans('admin.cities') }}</span>
+                    </a>
+                 </li>
+                 <li class="kt-menu__item {{ active_menu('states')[1] }}" aria-haspopup="true">
+                        <a href="{{ aurl('states') }}" class="kt-menu__link ">
+                           <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                           <span class="kt-menu__link-text">{{ trans('admin.states') }}</span>
+                     </a>
+                  </li>
                </ul>
             </div>
          </li>
          {{-- Cities --}}
-         <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('cities')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+         {{-- <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('cities')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
             <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                <span class="kt-menu__link-icon">
                      <i class="nav-icon fa fa-users"></i>
@@ -146,9 +158,9 @@
                   </li>
                </ul>
             </div>
-         </li>
+         </li> --}}
             {{-- states --}}
-         <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('states')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+         {{-- <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('states')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
             <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                <span class="kt-menu__link-icon">
                      <i class="nav-icon fa fa-users"></i>
@@ -167,14 +179,14 @@
                   </li>
                </ul>
             </div>
-         </li>
+         </li> --}}
        {{-- End counteries And Cities & states--}}
 
        {{-- Depratment --}}
        <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('departments')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
             <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                <span class="kt-menu__link-icon">
-                     <i class="nav-icon fa fa-users"></i>
+                     <i class="nav-icon fa fa-layer-group"></i>
                </span>
                <span class="kt-menu__link-text">{{ trans('admin.departments') }}</span>
                <i class="kt-menu__ver-arrow la la-angle-right"></i>
@@ -197,7 +209,7 @@
        <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('trademarks')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
             <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                <span class="kt-menu__link-icon">
-                     <i class="nav-icon fa fa-users"></i>
+                     <i class="nav-icon fa fa-trademark"></i>
                </span>
                <span class="kt-menu__link-text">{{ trans('admin.trademarks') }}</span>
                <i class="kt-menu__ver-arrow la la-angle-right"></i>
@@ -215,6 +227,52 @@
             </div>
          </li>
          {{-- Trademarks --}}
+
+         {{-- Manufacturers --}}
+         <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('manufacturers')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+               <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+                  <span class="kt-menu__link-icon">
+                        <i class="nav-icon fa fa-industry"></i>
+                  </span>
+                  <span class="kt-menu__link-text">{{ trans('admin.manufacturers') }}</span>
+                  <i class="kt-menu__ver-arrow la la-angle-right"></i>
+               </a>
+               <div class="kt-menu__submenu">
+                  <span class="kt-menu__arrow"></span>
+                  <ul class="kt-menu__subnav">
+                     <li class="kt-menu__item {{ active_menu('manufacturers')[1] }}" aria-haspopup="true">
+                        <a href="{{ aurl('manufacturers') }}" class="kt-menu__link ">
+                           <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                           <span class="kt-menu__link-text">{{ trans('admin.manufacturers') }}</span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </li>
+            {{-- Manufacturers --}}
+
+            {{-- Manufacturers --}}
+            <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('shipping')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+               <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+                  <span class="kt-menu__link-icon">
+                        <i class="nav-icon fa fa-industry"></i>
+                  </span>
+                  <span class="kt-menu__link-text">{{ trans('admin.shipping') }}</span>
+                  <i class="kt-menu__ver-arrow la la-angle-right"></i>
+               </a>
+               <div class="kt-menu__submenu">
+                  <span class="kt-menu__arrow"></span>
+                  <ul class="kt-menu__subnav">
+                     <li class="kt-menu__item {{ active_menu('shipping')[1] }}" aria-haspopup="true">
+                        <a href="{{ aurl('shipping') }}" class="kt-menu__link ">
+                           <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                           <span class="kt-menu__link-text">{{ trans('admin.shipping') }}</span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </li>
+         {{-- Manufacturers --}}
          </ul>
       </div>
    </div>

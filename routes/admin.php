@@ -35,6 +35,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::resource('trademarks', 'TradeMarksController');
         Route::delete('trademarks/destroy/all', 'TradeMarksController@multi_delete');
 
+        Route::resource('manufacturers', 'ManufacturersController');
+        Route::delete('manufacturers/destroy/all', 'ManufacturersController@multi_delete');
+
+        Route::resource('shipping', 'ShippingController');
+        Route::delete('shipping/destroy/all', 'ShippingController@multi_delete');
+
         Route::resource('departments', 'DepartmentsController');
 
 

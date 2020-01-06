@@ -1,5 +1,4 @@
 @extends('admin.master')
-
 @section('content')
 <div class="kt-portlet kt-portlet--mobile">
     <div class="kt-portlet__head kt-portlet__head--lg">
@@ -13,14 +12,15 @@
         </div>
     </div>
     <div class="card-body">
-      {!! Form::open(['id'=>'form_data','url'=>aurl('countries/destroy/all'),'method'=>'delete']) !!}
-        {{ $dataTable->table([ 'class' => 'table table-bordered table-hover dataTable'], true) }}
-      {!! Form::close() !!}
+  	{!! Form::open(['id'=>'form_data','url'=>aurl('manufacturers/destroy/all'),'method'=>'delete']) !!}
+    {!! $dataTable->table(['class'=>'dataTable table table-striped table-hover  table-bordered'],true) !!}
+    {!! Form::close() !!}
   </div>
 </div>
 
+
 <!-- Start Modal Confirm Delete -->
-  @include('admin.countries.ModelConfirmDelete')
+@include('admin.manufacturers.ModelConfirmDelete')
 <!-- End Modal Confirm Delete -->
 
 
@@ -28,7 +28,7 @@
 <script>
 deleteAll();
 </script>
-  {{ $dataTable->scripts() }}
+{!! $dataTable->scripts() !!}
 @endpush
 
 @endsection
