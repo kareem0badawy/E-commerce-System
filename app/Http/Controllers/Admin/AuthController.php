@@ -20,7 +20,7 @@ class AuthController extends Controller
     }
 
     public function postLogin(Request $request) {
-		// dd($request->all());
+		\logger($request->all());
         $rememberme = $request->rememberme == 1?true:false;
 		if (admin()->attempt(['email' => $request->email, 'password' => $request->password], $rememberme)) {
 			return redirect('admin');

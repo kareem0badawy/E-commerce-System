@@ -1,10 +1,10 @@
 <?php
 namespace App\Http\Controllers\Admin;
-use App\DataTables\MallsDatatable;
-use App\Http\Controllers\Controller;
+use Storage;
 use App\Model\Mall;
 use Illuminate\Http\Request;
-use Storage;
+use App\DataTables\MallsDatatable;
+use App\Http\Controllers\Controller;
 
 class MallsController extends Controller {
     /**
@@ -22,7 +22,7 @@ class MallsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('admin.malls.create', ['title' => trans('admin.add')]);
+        return view('admin.malls.manage', ['title' => trans('admin.add')]);
     }
 
     /**
@@ -47,7 +47,7 @@ class MallsController extends Controller {
                 'contact_name' => 'sometimes|nullable|string',
                 'lat'          => 'sometimes|nullable',
                 'lng'          => 'sometimes|nullable',
-                'icon'         => 'sometimes|nullable|' . v_image(),
+                'icon'         => 'sometimes|nullable|' . validate_image(),
             ], [], [
                 'name_ar'      => trans('admin.name_ar'),
                 'name_en'      => trans('admin.name_en'),
@@ -97,7 +97,7 @@ class MallsController extends Controller {
     public function edit($id) {
         $mall  = Mall::find($id);
         $title = trans('admin.edit');
-        return view('admin.malls.edit', compact('mall', 'title'));
+        return view('admin.malls.manage', compact('mall', 'title'));
     }
 
     /**
@@ -123,7 +123,7 @@ class MallsController extends Controller {
                 'contact_name' => 'sometimes|nullable|string',
                 'lat'          => 'sometimes|nullable',
                 'lng'          => 'sometimes|nullable',
-                'icon'         => 'sometimes|nullable|' . v_image(),
+                'icon'         => 'sometimes|nullable|' . validate_image(),
             ], [], [
                 'name_ar'      => trans('admin.name_ar'),
                 'name_en'      => trans('admin.name_en'),

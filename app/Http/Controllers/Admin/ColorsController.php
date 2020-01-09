@@ -26,7 +26,7 @@ class ColorsController extends Controller
     */
    public function create()
    {
-      return view('admin.colors.create', ['title' => trans('admin.add')]);
+      return view('admin.colors.manage', ['title' => trans('admin.add')]);
    }
 
    /**
@@ -76,7 +76,7 @@ class ColorsController extends Controller
    {
       $color = Color::find($id);
       $title = trans('admin.edit');
-      return view('admin.colors.edit', compact('color', 'title'));
+      return view('admin.colors.manage', compact('color', 'title'));
    }
 
    /**

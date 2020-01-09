@@ -251,11 +251,11 @@
             </li>
             {{-- Manufacturers --}}
 
-            {{-- Manufacturers --}}
+            {{-- Shipping Company --}}
             <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('shipping')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
                <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                   <span class="kt-menu__link-icon">
-                        <i class="nav-icon fa fa-industry"></i>
+                        <i class="nav-icon fa fa-truck"></i>
                   </span>
                   <span class="kt-menu__link-text">{{ trans('admin.shipping') }}</span>
                   <i class="kt-menu__ver-arrow la la-angle-right"></i>
@@ -272,7 +272,53 @@
                   </ul>
                </div>
             </li>
-         {{-- Manufacturers --}}
+         {{-- Shipping Company --}}
+
+         {{-- Malls --}}
+         <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('malls')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+            <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+               <span class="kt-menu__link-icon">
+                     <i class="nav-icon fa fa-truck"></i>
+               </span>
+               <span class="kt-menu__link-text">{{ trans('admin.malls') }}</span>
+               <i class="kt-menu__ver-arrow la la-angle-right"></i>
+            </a>
+            <div class="kt-menu__submenu">
+               <span class="kt-menu__arrow"></span>
+               <ul class="kt-menu__subnav">
+                  <li class="kt-menu__item {{ active_menu('malls')[1] }}" aria-haspopup="true">
+                     <a href="{{ aurl('malls') }}" class="kt-menu__link ">
+                        <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                        <span class="kt-menu__link-text">{{ trans('admin.malls') }}</span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </li>
+         {{-- Malls --}}
+
+         {{-- Colors --}}
+         <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('colors')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+            <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+               <span class="kt-menu__link-icon">
+                     <i class="nav-icon fa fa-truck"></i>
+               </span>
+               <span class="kt-menu__link-text">{{ trans('admin.colors') }}</span>
+               <i class="kt-menu__ver-arrow la la-angle-right"></i>
+            </a>
+            <div class="kt-menu__submenu">
+               <span class="kt-menu__arrow"></span>
+               <ul class="kt-menu__subnav">
+                  <li class="kt-menu__item {{ active_menu('colors')[1] }}" aria-haspopup="true">
+                     <a href="{{ aurl('colors') }}" class="kt-menu__link ">
+                        <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                        <span class="kt-menu__link-text">{{ trans('admin.colors') }}</span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </li>
+         {{-- Colors --}}
          </ul>
       </div>
    </div>

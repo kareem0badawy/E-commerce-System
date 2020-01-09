@@ -22,8 +22,8 @@
         longitudeInput: $('#lng'),
        // radiusInput: $('#us2-radius'),
         locationNameInput: $('#address')
-      }
-
+      },
+      enableAutocomplete: true
   });
  </script>
  @endpush
@@ -104,7 +104,7 @@
                      </div>
 
 
-                     {!! Form::submit(trans('admin.add'),['class'=>'btn btn-primary']) !!}
+                     {!! Form::submit(trans('admin.save'),['class'=>'btn btn-primary']) !!}
                      {!! Form::close() !!}
                   </div>
                </div>

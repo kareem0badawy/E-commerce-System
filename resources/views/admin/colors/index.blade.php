@@ -1,12 +1,17 @@
-@extends('admin.index')
+@extends('admin.master')
 @section('content')
-<div class="box">
-  <div class="box-header">
-    <h3 class="box-title">{{ $title }}</h3>
-  </div>
-  <!-- /.box-header -->
-  <div class="box-body">
-
+<div class="kt-portlet kt-portlet--mobile">
+    <div class="kt-portlet__head kt-portlet__head--lg">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="kt-font-brand flaticon2-line-chart"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                {{ $title }}
+            </h3>
+        </div>
+    </div>
+    <div class="card-body">
   	{!! Form::open(['id'=>'form_data','url'=>aurl('colors/destroy/all'),'method'=>'delete']) !!}
     {!! $dataTable->table(['class'=>'dataTable table table-striped table-hover  table-bordered'],true) !!}
     {!! Form::close() !!}
@@ -18,43 +23,15 @@
 
 <!-- Trigger the modal with a button -->
 
-<!-- Modal -->
-<div id="mutlipleDelete" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">{{ trans('admin.delete') }}</h4>
-      </div>
-      <div class="modal-body">
 
-        <div class="alert alert-danger">
-        	<div class="empty_record hidden">
-        	<h4>{{ trans('admin.please_check_some_records') }} </h4>
-        	</div>
-        	<div class="not_empty_record hidden">
-        	<h4>{{ trans('admin.ask_delete_itme') }} <span class="record_count"></span> ? </h4>
-        	</div>
-        </div>
-      </div>
-      <div class="modal-footer">
-      	<div class="empty_record hidden">
-        <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('admin.close') }}</button>
-      	</div>
-      	<div class="not_empty_record hidden">
-        <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('admin.no') }}</button>
-        <input type="submit"  value="{{ trans('admin.yes') }}"  class="btn btn-danger del_all" />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- Start Modal Confirm Delete -->
+@include('admin.colors.ModelConfirmDelete')
+<!-- End Modal Confirm Delete -->
 
 
 @push('js')
 <script>
-delete_all();
+deleteAll();
 </script>
 {!! $dataTable->scripts() !!}
 @endpush
