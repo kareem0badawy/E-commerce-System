@@ -1,0 +1,1 @@
+@if($is_public == 0 ) {{ trans('admin.no') }} @else{{ trans('admin.yes') }} @endif
