@@ -35,12 +35,14 @@ class CountriesController extends Controller {
 				'name_en' => 'required',
 				'iso_code'             => 'required',
 				'code'            => 'required',
+				'currency'            => 'required',
 				'logo'            => 'required|'.validate_image(),
 			], [], [
 				'name_ar' => trans('admin.country_name_ar'),
 				'name_en' => trans('admin.country_name_en'),
 				'iso_code'             => trans('admin.iso_code'),
 				'code'            => trans('admin.code'),
+				'currency'            => trans('admin.currency'),
 				'logo'            => trans('admin.logo'),
 			]);
 		if (request()->hasFile('logo')) {
@@ -89,12 +91,14 @@ class CountriesController extends Controller {
 				'name_en' => 'required',
 				'iso_code'             => 'required',
 				'code'            => 'required',
+				'currency'            => 'required',
 				'logo'            => 'sometimes|nullable|'.validate_image(),
 			], [], [
 				'name_ar' => trans('admin.country_name_ar'),
 				'name_en' => trans('admin.country_name_en'),
 				'iso_code'        => trans('admin.iso_code'),
 				'code'            => trans('admin.code'),
+				'currency'            => trans('admin.currency'),
 				'logo'            => trans('admin.logo'),
 			]);
 		if (request()->hasFile('logo')) {

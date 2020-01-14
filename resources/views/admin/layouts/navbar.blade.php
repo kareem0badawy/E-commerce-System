@@ -278,7 +278,7 @@
          <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('malls')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
             <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                <span class="kt-menu__link-icon">
-                     <i class="nav-icon fa fa-truck"></i>
+                     <i class="nav-icon fa fa-building"></i>
                </span>
                <span class="kt-menu__link-text">{{ trans('admin.malls') }}</span>
                <i class="kt-menu__ver-arrow la la-angle-right"></i>
@@ -301,7 +301,7 @@
          <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('colors')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
             <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                <span class="kt-menu__link-icon">
-                     <i class="nav-icon fa fa-truck"></i>
+                     <i class="nav-icon fas fa-palette"></i>
                </span>
                <span class="kt-menu__link-text">{{ trans('admin.colors') }}</span>
                <i class="kt-menu__ver-arrow la la-angle-right"></i>
@@ -324,7 +324,7 @@
             <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('sizes')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
                <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
                   <span class="kt-menu__link-icon">
-                        <i class="nav-icon fa fa-truck"></i>
+                        <i class="nav-icon fa fa-window-restore"></i>
                   </span>
                   <span class="kt-menu__link-text">{{ trans('admin.sizes') }}</span>
                   <i class="kt-menu__ver-arrow la la-angle-right"></i>
@@ -338,10 +338,39 @@
                            <span class="kt-menu__link-text">{{ trans('admin.sizes') }}</span>
                         </a>
                      </li>
+                     <li class="kt-menu__item {{ active_menu('weights')[1] }}" aria-haspopup="true">
+                        <a href="{{ aurl('weights') }}" class="kt-menu__link ">
+                           <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                           <span class="kt-menu__link-text">{{ trans('admin.weights') }}</span>
+                        </a>
+                     </li>
                   </ul>
                </div>
             </li>
          {{-- Sizes --}}
+
+          {{-- Products --}}
+          <li class="kt-menu__item  kt-menu__item--submenu {{ active_menu('products')[0] }}" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+            <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+               <span class="kt-menu__link-icon">
+                     <i class="nav-icon fa fa-cubes"></i>
+               </span>
+               <span class="kt-menu__link-text">{{ trans('admin.products') }}</span>
+               <i class="kt-menu__ver-arrow la la-angle-right"></i>
+            </a>
+            <div class="kt-menu__submenu">
+               <span class="kt-menu__arrow"></span>
+               <ul class="kt-menu__subnav">
+                  <li class="kt-menu__item {{ active_menu('products')[1] }}" aria-haspopup="true">
+                     <a href="{{ aurl('products') }}" class="kt-menu__link ">
+                        <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+                        <span class="kt-menu__link-text">{{ trans('admin.products') }}</span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </li>
+         {{-- Products --}}
          </ul>
       </div>
    </div>

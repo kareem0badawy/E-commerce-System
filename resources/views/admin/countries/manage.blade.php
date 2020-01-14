@@ -37,6 +37,11 @@
                      </div>
 
                      <div class="form-group">
+                        {!! Form::label('currency',trans('admin.currency')) !!}
+                        {!! Form::text('currency',old('currency'),['class'=>'form-control']) !!}
+                     </div>
+
+                     <div class="form-group">
                         {!! Form::label('logo',trans('admin.country_flag')) !!}
                         {!! Form::file('logo',['class'=>'form-control']) !!}
                         @if(!empty($country->logo))
