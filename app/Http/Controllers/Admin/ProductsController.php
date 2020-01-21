@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\ProductsDatatable;
 use App\Http\Controllers\Controller;
+use App\Model\Product;
 use App\Model\Weight;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,12 @@ class ProductsController extends Controller
     */
    public function create()
    {
-      return view('admin.products.manage', ['title' => trans('admin.add')]);
+      $product = Product::create(['title'=>'']);
+      dd($product);
+      if (!empty($product)) {
+         return redirect(aurl('products/' . $product->id . '/edit'));
+      }
+      return view('admin.products.manageProduct', ['title' => trans('admin.create_or_edit_product')]);
    }
 
    /**
@@ -71,9 +77,12 @@ class ProductsController extends Controller
     */
    public function edit($id)
    {
-      $weight = Weight::find($id);
-      $title = trans('admin.edit');
-      return view('admin.weights.manage', compact('weight', 'title'));
+      $product = Product::find($id);
+      return view(
+                  'admin.products.manageProduct', 
+                  ['title' => trans('admin.create_or_edit_product', ['title'=>$product->title])],
+                   compact('product')
+               );
    }
 
    /**

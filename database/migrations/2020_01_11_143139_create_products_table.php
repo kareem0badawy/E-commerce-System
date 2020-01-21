@@ -17,9 +17,9 @@ class CreateProductsTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('photo');
-            $table->longText('content');
+            $table->string('title')->nullable();
+            $table->string('photo')->nullable();
+            $table->longText('content')->nullable();
             
             $table->unsignedBigInteger('trade_id')->nullable();
             $table->foreign('trade_id')->references('id')->on('trade_marks')->onDelete('cascade');
@@ -42,17 +42,18 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('currency_id')->nullable();
             $table->foreign('currency_id')->references('id')->on('countries');
 
+            $table->string('weight')->nullable();
             $table->unsignedBigInteger('weight_id')->nullable();
             $table->foreign('weight_id')->references('id')->on('weights')->onDelete('cascade');
 
-            $table->decimal('price');
+            $table->decimal('price')->nullable();
             $table->integer('stock')->default(0);
-            $table->longText('other_data');
+            $table->longText('other_data')->nullable();
             $table->date('start_at')->nullable();
             $table->date('end_at')->nullable();
             $table->date('start_offer_at')->nullable();
             $table->date('end_offer_at')->nullable();
-            $table->decimal('price_offer');
+            $table->decimal('price_offer')->nullable();
 
             $table->enum('status',['pending','refused','active'])->default('pending');
             $table->longText('reason')->nullable();

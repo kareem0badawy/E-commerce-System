@@ -6,9 +6,9 @@
 @include('admin.departments.ModelConfirmDelete')
 <!-- End Modal Confirm Delete -->
 
-<!-- Start Modal Confirm Delete -->
+<!-- Start Modal get Js Tree -->
 @include('admin.departments.getJsTreeInIndex')
-<!-- End Modal Confirm Delete -->
+<!-- End Modal get Js Tree -->
 @endpush
 
 <div class="kt-portlet kt-portlet--mobile">

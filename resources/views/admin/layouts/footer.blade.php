@@ -65,6 +65,7 @@
 		<script src="{{ asset('adminPanal/assets/vendors/general/jquery-form/dist/jquery.form.min.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('adminPanal/assets/vendors/general/block-ui/jquery.blockUI.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('adminPanal/assets/vendors/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ar.min.js" type="text/javascript"></script>
 		<script src="{{ asset('adminPanal/assets/vendors/custom/js/vendors/bootstrap-datepicker.init.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('adminPanal/assets/vendors/general/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('adminPanal/assets/vendors/general/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}" type="text/javascript"></script>
@@ -77,6 +78,7 @@
 		<script src="{{ asset('adminPanal/assets/vendors/general/bootstrap-switch/dist/js/bootstrap-switch.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('adminPanal/assets/vendors/custom/js/vendors/bootstrap-switch.init.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('adminPanal/assets/vendors/general/select2/dist/js/select2.full.js')}}" type="text/javascript"></script>
+		<script src="{{ asset('adminPanal/assets/js/demo1/pages/crud/forms/widgets/select2.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('adminPanal/assets/vendors/general/ion-rangeslider/js/ion.rangeSlider.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('adminPanal/assets/vendors/general/typeahead.js/dist/typeahead.bundle.js')}}" type="text/javascript"></script>
 		<script src="{{ asset('adminPanal/assets/vendors/general/handlebars/dist/handlebars.js')}}" type="text/javascript"></script>

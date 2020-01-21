@@ -31,7 +31,8 @@
 
 		<!--begin::Page Vendors Styles(used by this page) -->
 		<link href="{{ asset('adminPanal/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
-		<link href="https://keenthemes.com/metronic/themes/metronic/theme/default/demo1/dist/assets/css/pages/wizard/wizard-1.css" rel="stylesheet" type="text/css" />
+		{{-- <link href="https://keenthemes.com/metronic/themes/metronic/theme/default/demo1/dist/assets/css/pages/wizard/wizard-1.css" rel="stylesheet" type="text/css" /> --}}
+		<link href="{{ asset('adminPanal/assets/css/demo1/pages/wizard/wizard-1New.css') }}" rel="stylesheet" type="text/css" />
 
 
 		<!--end::Page Vendors Styles -->
