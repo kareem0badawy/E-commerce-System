@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Product;
 use App\Model\Weight;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
@@ -27,7 +28,7 @@ class ProductsController extends Controller
    public function create()
    {
       $product = Product::create(['title'=>'']);
-      dd($product);
+      // dd($product);
       if (!empty($product)) {
          return redirect(aurl('products/' . $product->id . '/edit'));
       }
@@ -109,6 +110,51 @@ class ProductsController extends Controller
       return redirect(aurl('weights'));
    }
 
+   public function uploadProductImage($id)
+   {
+      $product = Product::whereId($id)->update([
+         'photo' => up()->upload([
+            'file'        => 'file',
+            'path'        => 'products/'.$id,
+            'upload_type' => 'single',
+            'delete_file' => '',
+         ])
+      ]);
+      //'photo'=>$product->photo
+      return response(['status'=>true],200);   
+   }
+
+   public function deleteProductImage($id)
+   {
+      $product = Product::find($id);
+      Storage::delete($product->photo);
+      $product->photo = null;
+      $product->save();
+      return response(['status'=>true],200); 
+   }
+
+
+   public function uploadProduct($id)
+   {
+      $product = Product::findOrFail($id);
+      if (request()->hasFile('file')) {
+			 $file_id = up()->upload([
+					'file'        => 'file',
+					'path'        => 'products/'.$id,
+					'upload_type' => 'files',
+					'file_type' => 'product',
+					'relation_id' => $id,
+            ]);
+         return response(['status'=>true, 'id'=>$file_id],200);   
+		}
+   }
+
+   public function deleteProduct()
+   {
+      if (request()->has('id')) {
+         return up()->delete(request('id'));
+     }
+   }
    /**
     * Remove the specified resource from storage.
     *

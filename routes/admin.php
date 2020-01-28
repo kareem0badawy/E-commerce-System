@@ -58,6 +58,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::resource('products', 'ProductsController');
         Route::delete('products/destroy/all', 'ProductsController@multi_delete');
 
+        Route::post('upload/product/image/{id}', 'ProductsController@uploadProductImage');
+        Route::delete('delete/product/image/{id}', 'ProductsController@deleteProductImage');
+
+        Route::post('upload/product/images/{id}', 'ProductsController@uploadProduct');
+        Route::delete('delete/product/images/', 'ProductsController@deleteProduct');
+
 
         Route::any('logout', 'AuthController@logout');
         Route::get('settings', 'Settings@setting');

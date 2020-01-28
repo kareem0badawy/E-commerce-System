@@ -41,6 +41,7 @@
 							<div class="kt-login__signin">
 								<div class="kt-login__head">
 									<h3 class="kt-login__title">Sign In To Admin</h3>
+									<p class="kt-login__title">admin@admin.com</p>
 								</div>
 								<form class="kt-form"  method="post">
                                     {{ csrf_field() }}

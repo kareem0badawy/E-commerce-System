@@ -11,7 +11,7 @@ class File extends Model {
 	// 	'size',
 	// 	'file',
 	// 	'path',
-	// 	'full_file',
+	// 	'full_path',
 	// 	'mime_type',
 	// 	'file_type',
 	// 	'relation_id',

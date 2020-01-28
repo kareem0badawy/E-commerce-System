@@ -153,6 +153,8 @@ return [
 	'refused'		          	   => 'مرفوض',
 	'active'		          	   => 'مفعل',
 	'refused_reason'		       => 'سبب الرفض',
+	'main_product_image' 		   => 'الصورة الرئيسية للمنتج',
+	'product_images' 		  	   => 'صور المنتج'
 ];
 
 
